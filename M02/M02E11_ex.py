@@ -2,8 +2,12 @@
 
 text = input("Podaj tekst: ")
 
+new_text = ""
+
 for t in text:
-	if t.isnumeric():
-		new_text = text.replace(t, "X")
+	if t.isdigit():
+		new_text = new_text + "X"
+	else:
+		new_text = new_text + t
 
 print(new_text)
