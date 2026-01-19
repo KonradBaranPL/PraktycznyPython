@@ -5,19 +5,22 @@
 # Mając już pojedynczą linię konieczne będzie dalsze jej podzielenie już po spacjach, tak aby dostać się do kwoty wydatku, która jest na początku każdej linii.
 
 
-# $ C:\PYTHON\PP\M03\expenses.txt
+# $ C:\PYTHON\PP\M03\expenses_ex.txt
 
-FILE = r"C:\PYTHON\PP\M03\expenses.txt"
+FILE = r"C:\PYTHON\PP\M03\expenses_ex.txt"
 
-with open(FILE) as stream:
+with open(FILE, encoding="utf-8") as stream:
     content = stream.read()
 
-expenses = content.split()
-print(expenses)
+expenses_lines = content.split("\n")
 
-sum_expenses = 0
+summary_expenses = 0
 
-for e in expenses:
-    sum_expenses += float(e)
+for line in expenses_lines:
+    if line:
+        line_words = line.split()
+        cost = line_words[0]
+        summary_expenses += float(cost)
 
-print(sum_expenses)
+print(summary_expenses)
+
