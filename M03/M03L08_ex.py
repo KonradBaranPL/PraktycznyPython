@@ -5,18 +5,13 @@
 # To oznacza, że zdefiniujesz stałą zawierającą kilka znaków interpunkcyjnych.
 # Samodzielnie znajdź metodę do określania, czy dany string jest liczbą.
 
-# INTERPUNCTION = "..,;:?!…—–-()[]„”\"'«»/\\%*#@&^_=+|~`"
-INTERPUNCTION = ".,%"
+INTERPUNCTION = "..,;:?!…—–-()[]„”\"'«»/\\%*#@&^_=+|~`"
 
 text = input("Wpisz tekst: ")
-
-
-
 
 for i in INTERPUNCTION:
     if i in text:
         text = text.replace(i,"")
-
 
 words = text.split()
 print(words)
@@ -26,21 +21,16 @@ print(words_count)
 
 numbers_count = 0
 for w in words:
-    if w.isdigit:
+    if w.isdigit():
         numbers_count += 1
 
 print(numbers_count)
 
-
 print(text)
 
+# skrypt niedokończony - nie ma zliczania jaki procent słów stanowią liczby
 
-# for t in text:
-#     if t in INTERPUNCTION:
-#         new_text = text.replace(t, " ")
-#     else:
-#         new_text = text
-# print(new_text)
+
 
 # Przykładowy tekst do testowania: 
 # Stopa bezrobocia w Polsce w 2020 roku wyniosła 3,2%, w 2021 roku spadła do 2,9%, a w 2022 roku wzrosła do 4,1%. Wzrost bezrobocia odnotowano w każdym z ostatnich trzech lat.
