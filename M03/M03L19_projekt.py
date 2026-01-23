@@ -7,3 +7,20 @@
 # 5. Sentyment poszczególnych słów w tym komentarzu liczymy wg wzoru (positive-negative)/all_, gdzie positive to liczba pozytywnych recenzji, w których pojawiło się to słowo. Negative to liczba negatywnych recenzji, w których pojawiło się to słowo. Natomiast all_ to liczba wszystkich recenzji, w których pojawiło się to słowo. Na przykład, jeśli dane słowo pojawia się w 5 pozytywnych i 5 negatywnych recenzjach, to jego sentyment wynosi (5-5)/10 = 0.0. Jeśli dane słowo pojawia się w 9 pozytywnych i 1 negatywnej recenzji, to jego sentyment wynosi (9-1)/10 = +0.8. Jeśli dane słowo pojawia się w 90 pozytywnych i 10 negatywnych recenzjach, to jego sentyment wynosi (90-10)/100 = +0.8, tak samo jak wcześniej. Tak więc liczba zawsze jest z zakresu od -1.0 do +1.0. 
 # 6. Sentyment całego tego komentarza to średnia arytmetyczna sentymentu wszystkich słów. Tak więc wystarczy zsumować sentyment poszczególnych słów i następnie taką sumę podzielić przez liczbę słów. W ten sposób sentyment całego komentarza też będzie z zakresu od -1.0 do +1.0.
 # 7. Cały komentarz uznajemy za pozytywny, gdy jego sentyment jest > 0, a negatywny gdy jest < 0.
+###############################################################################################################
+import glob
+
+
+PATH_POSITIVE_REVIEWS = r"C:\PYTHON\PP\M03\data\aclImdb\train\pos\*.txt"
+
+PATH_NEGATIVE_REVIEWS = r"C:\PYTHON\PP\M03\data\aclImdb\train\neg"
+
+HTML_ELEMENT = "<br />"
+
+
+files_positive = glob.glob(PATH_POSITIVE_REVIEWS)
+files_negative = glob.glob("C:\PYTHON\PP\M03\data\aclImdb\train\neg\*.txt")
+
+for file_ in files_positive:
+    with open(file_, encoding="utf-8") as stream:
+        content = stream.read()
