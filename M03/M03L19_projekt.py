@@ -13,14 +13,38 @@ import glob
 
 PATH_POSITIVE_REVIEWS = r"C:\PYTHON\PP\M03\data\aclImdb\train\pos\*.txt"
 
-PATH_NEGATIVE_REVIEWS = r"C:\PYTHON\PP\M03\data\aclImdb\train\neg"
+PATH_NEGATIVE_REVIEWS = r"C:\PYTHON\PP\M03\data\aclImdb\train\neg\*.txt"
 
 HTML_ELEMENT = "<br />"
 
 
 files_positive = glob.glob(PATH_POSITIVE_REVIEWS)
-files_negative = glob.glob("C:\PYTHON\PP\M03\data\aclImdb\train\neg\*.txt")
+files_negative = glob.glob(PATH_NEGATIVE_REVIEWS)
 
-for file_ in files_positive:
-    with open(file_, encoding="utf-8") as stream:
+all_positive_reviews = []
+
+all_negative_reviews = []
+
+for file in files_positive:
+    with open(file, encoding="utf-8") as stream:
         content = stream.read()
+
+        content = content.replace(HTML_ELEMENT, " ")
+
+        review = content.split()
+
+        all_positive_reviews.append(review)
+
+
+for file in files_negative:
+    with open(file, encoding="utf-8") as stream:
+        content = stream.read()
+
+        content = content.replace(HTML_ELEMENT, " ")
+
+        review = content.split()
+
+        all_negative_reviews.append(review)
+
+
+user_comment = input("Wpisz swój komentarz: ")
