@@ -77,8 +77,18 @@ for word in user_comment_words:
 
     words_sentiment.append(sentiment)
 
+    print(f"{word}: {sentiment}")
+
 print(words_sentiment)
 
 comment_sentiment = sum(words_sentiment) / len(words_sentiment)
 
 print(comment_sentiment)
+
+
+if comment_sentiment > 0:
+    label = "positive"
+else:
+    label = "negative"
+
+print(f"Ten komentarz jest {label}, sentyment: {sentiment}")
