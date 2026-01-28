@@ -1,0 +1,8 @@
+### 🔴 Ćwiczenie
+
+# W projekcie M03L19 analizowaliśmy sentyment 25 tys. recenzji filmowych. Wymagało to m.in. zliczenia w ilu recenzjach pojawiają się poszczególne słowa. W pierwotnym rozwiązaniu prosiliśmy użytkownika o nową recenzję, dzieliliśmy ją na słowa, a następnie dla każdego słowa przechodziliśmy przez wszystkie recenzje, aby zliczyć ile razy to słowo pojawia się w negatywnych, a ile razy w pozytywnych komentarzach.
+# Nie jest to najefektywniejszy sposób. W tym ćwiczeniu poprawisz kod z tamtego projektu tak, aby na etapie wczytywania plików zliczył liczbę wystąpień poszczególnych słów, zapamiętał rezultat w dwóch osobnych słownikach (jeden dla pozytywnych recenzji, jeden dla negatywnych). Następnie poproś użytkownika o nową recenzję i wylicz jej sentyment korzystając już tylko z tych dwóch słowników.
+# Zwróć uwagę, że nawet jeśli jakieś słowo pojawia się w recenzji dwa razy, wówczas jego licznik chcemy zwiększyć tylko o jeden. W końcu interesuje nas liczba recenzji zawierających dane słowo, a nie ile razy to słowo pojawia się we wszystkich recenzjach. Potrzebujemy więc w ramach pojedynczej recenzji pozbyć się powtórzeń tych samych słów.
+
+# Dzięki tym modyfikacjom program wykorzystuje mniej pamięci, bo nie musi zapamiętywać wszystkich recenzji w pamięci, a jedynie liczbę wystąpień słów.
+# Po drugie, program będzie dużo szybciej wyliczał sentyment nowych recenzji. W wielu zastosowaniach Machine Learning kluczowe jest, aby czas predykcji (czyli czas wyliczania sentymentu dla nowej recenzji) był wystarczająco krótki.

@@ -8,6 +8,9 @@
 # 6. Sentyment całego tego komentarza to średnia arytmetyczna sentymentu wszystkich słów. Tak więc wystarczy zsumować sentyment poszczególnych słów i następnie taką sumę podzielić przez liczbę słów. W ten sposób sentyment całego komentarza też będzie z zakresu od -1.0 do +1.0.
 # 7. Cały komentarz uznajemy za pozytywny, gdy jego sentyment jest > 0, a negatywny gdy jest < 0.
 ###############################################################################################################
+
+# $ comment: "And another recent score of his, for Catch Me if You Can, shows still more wit and sophistication.Really enjoyable with lots of colour, plenty of sexiness, some gory kills and minimal police interference."
+
 import glob
 
 
@@ -48,3 +51,34 @@ for file in files_negative:
 
 
 user_comment = input("Wpisz swój komentarz: ")
+
+user_comment_words = user_comment.split()
+
+words_sentiment = []
+
+for word in user_comment_words:
+
+    occurrances_positive = 0
+    for review in all_positive_reviews:
+        if word in review:
+            occurrances_positive += 1
+
+    occurrances_negative = 0
+    for review in all_negative_reviews:
+        if word in review:
+            occurrances_negative += 1
+    
+    all = occurrances_positive + occurrances_negative
+
+    if all == 0:
+        sentiment = 0
+    else:
+        sentiment = (occurrances_positive - occurrances_negative) / all
+
+    words_sentiment.append(sentiment)
+
+print(words_sentiment)
+
+comment_sentiment = sum(words_sentiment) / len(words_sentiment)
+
+print(comment_sentiment)
